@@ -50,8 +50,7 @@ public class CompanyServiceImpl implements CompanyService {
 			newCompany.setPhoneNumber(company.getPhoneNumber());
 			newCompany.setTax(company.getTax());
 			companyRepository.save(newCompany); // lưu vào db
-			// haha
-			// kkk
+			// linh ngo
 			return newCompany;
 		};
 		return null;
