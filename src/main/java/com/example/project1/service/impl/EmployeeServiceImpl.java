@@ -42,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         // kiểm tra có tồn tại công ty không
         CompanyEntity companyEntity = companyRepository.findById(employeeDTO.getCompany().getId())
                 .orElseThrow(() -> new CompanyNotFoundException("Company not found"));
+        employeeEntity.setCompanyEntity(companyEntity);
         employeeRepository.save(employeeEntity);
         return employeeMapper.toDTO(employeeEntity);
     }
