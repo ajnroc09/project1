@@ -61,7 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(() -> new EmployeeNotFoundException("Employee not found"));
         EmployeeDTO employeeDTO = employeeMapper.toDTO(employeeEntity);
         employeeDTO.setCompany(companyMapper.toDTO(employeeEntity.getCompanyEntity()));
-        return employeeMapper.toDTO(employeeEntity);
+        return employeeDTO;
 
     }
 
