@@ -28,7 +28,7 @@ public class CompanyController {
 	}
 	// xem chi tiết cty
 	@GetMapping("/detail/{id}")
-	public ResponseEntity<CompanyDTO> getDetailCompany(@PathVariable("id") Long id) throws CompanyNotFoundException {
+	public ResponseEntity<CompanyDTO> getDetailCompany(@PathVariable("id") String id) throws CompanyNotFoundException {
 		return new ResponseEntity<>(companyService.getCompanyById(id),HttpStatus.OK);
 	}
 
@@ -40,12 +40,12 @@ public class CompanyController {
 
 	// cập nhật cty
 	@PutMapping("/update/{id}")
-	public ResponseEntity<CompanyDTO> updateCompany(@PathVariable("id") Long id, @RequestBody CompanyDTO companyDTO) throws CompanyNotFoundException {
+	public ResponseEntity<CompanyDTO> updateCompany(@PathVariable("id") String id, @RequestBody CompanyDTO companyDTO) throws CompanyNotFoundException {
 		return new ResponseEntity<>(companyService.updateCompany(id, companyDTO),HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteCompany(@PathVariable("id") Long id) throws CompanyNotFoundException {
+	public ResponseEntity<String> deleteCompany(@PathVariable("id") String id) throws CompanyNotFoundException {
 		companyService.deleteCompany(id);
 		return new ResponseEntity<>("delete successfully!",HttpStatus.OK);
 	}

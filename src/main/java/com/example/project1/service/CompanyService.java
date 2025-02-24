@@ -11,8 +11,8 @@ public interface CompanyService {
 	CompanyDTO saveCompany(CompanyDTO companyDTO);
 	List<CompanyDTO> getAllCompanies();
 
-	CompanyDTO getCompanyById(Long id) throws CompanyNotFoundException;
+	CompanyDTO getCompanyById(String id) throws CompanyNotFoundException;
 
-	CompanyDTO updateCompany(Long id, CompanyDTO company) throws CompanyNotFoundException;
-	void deleteCompany(Long id) throws CompanyNotFoundException;
+	CompanyDTO updateCompany(String id, CompanyDTO company) throws CompanyNotFoundException;
+	void deleteCompany(String id) throws CompanyNotFoundException;
 }

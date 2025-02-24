@@ -55,7 +55,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyDTO getCompanyById(Long id) throws CompanyNotFoundException {
+    public CompanyDTO getCompanyById(String id) throws CompanyNotFoundException {
         //---------------
         CompanyEntity companyEntity = companyRepository.findById(id)
                 .orElseThrow(() -> new CompanyNotFoundException("Company not found"));
@@ -72,7 +72,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyDTO updateCompany(Long id, CompanyDTO companyDTO) throws CompanyNotFoundException {
+    public CompanyDTO updateCompany(String id, CompanyDTO companyDTO) throws CompanyNotFoundException {
         // tìm công ty muống cập nhật
         CompanyEntity companyEntity = companyRepository.findById(id)
                 .orElseThrow(()->new CompanyNotFoundException("Company not found"));
@@ -85,7 +85,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void deleteCompany(Long id) throws CompanyNotFoundException {
+    public void deleteCompany(String id) throws CompanyNotFoundException {
         CompanyEntity companyEntity = companyRepository.findById(id)
                 .orElseThrow(()->new CompanyNotFoundException("Company not found"));
         companyRepository.delete(companyEntity);
